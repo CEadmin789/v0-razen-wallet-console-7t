@@ -1,6 +1,6 @@
 /**
  * RAZEN Wallet Console - Application JavaScript
- * Premium Fintech Dashboard - Thai Language UI
+ * TrueMoney Wallet Style - Thai Language UI
  */
 
 // ========================================
@@ -25,11 +25,11 @@ const mockData = {
     outgoing: [400, 600, 1200, 300, 500, 200, 20]
   },
   transactions: [
-    { id: 1, type: 'out', title: 'โอน P2P', sub: 'ไปยัง 081****234 · 20 พ.ค. 2026', amount: -1200, icon: '💸' },
-    { id: 2, type: 'in', title: 'รับเงิน', sub: 'จาก 089****567 · 19 พ.ค. 2026', amount: 2500, icon: '💰' },
-    { id: 3, type: 'out', title: 'โอนพร้อมเพย์', sub: 'ไปยัง 098****123 · 18 พ.ค. 2026', amount: -800, icon: '📱' },
-    { id: 4, type: 'in', title: 'รับเงิน', sub: 'จาก 065****890 · 17 พ.ค. 2026', amount: 1500, icon: '💰' },
-    { id: 5, type: 'out', title: 'โอน P2P', sub: 'ไปยัง 091****456 · 16 พ.ค. 2026', amount: -500, icon: '💸' }
+    { id: 1, type: 'out', title: 'โอน P2P', sub: 'ไปยัง 081****234 · 20 พ.ค. 2026', amount: -1200 },
+    { id: 2, type: 'in', title: 'รับเงิน', sub: 'จาก 089****567 · 19 พ.ค. 2026', amount: 2500 },
+    { id: 3, type: 'out', title: 'โอนพร้อมเพย์', sub: 'ไปยัง 098****123 · 18 พ.ค. 2026', amount: -800 },
+    { id: 4, type: 'in', title: 'รับเงิน', sub: 'จาก 065****890 · 17 พ.ค. 2026', amount: 1500 },
+    { id: 5, type: 'out', title: 'โอน P2P', sub: 'ไปยัง 091****456 · 16 พ.ค. 2026', amount: -500 }
   ],
   accounts: [
     { id: 1, name: 'บัญชีหลัก', phone: '092****708', status: 'active' },
@@ -123,14 +123,12 @@ function showToast(message, type = 'info') {
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
   
-  let icon = '💜';
-  if (type === 'success') icon = '✅';
-  if (type === 'error') icon = '❌';
+  let icon = '';
+  if (type === 'success') icon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+  else if (type === 'error') icon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+  else icon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
   
-  toast.innerHTML = `
-    <span style="font-size:18px;">${icon}</span>
-    <span>${message}</span>
-  `;
+  toast.innerHTML = `${icon}<span>${message}</span>`;
   
   container.appendChild(toast);
   
@@ -157,14 +155,14 @@ function initChart() {
   
   const ctx = canvas.getContext('2d');
   
-  // Create gradients
+  // Create gradients - TrueMoney colors
   const gradientGreen = ctx.createLinearGradient(0, 0, 0, 260);
-  gradientGreen.addColorStop(0, 'rgba(109, 243, 166, 0.25)');
-  gradientGreen.addColorStop(1, 'rgba(109, 243, 166, 0.0)');
+  gradientGreen.addColorStop(0, 'rgba(76, 175, 80, 0.3)');
+  gradientGreen.addColorStop(1, 'rgba(76, 175, 80, 0.0)');
   
-  const gradientCyan = ctx.createLinearGradient(0, 0, 0, 260);
-  gradientCyan.addColorStop(0, 'rgba(83, 211, 255, 0.25)');
-  gradientCyan.addColorStop(1, 'rgba(83, 211, 255, 0.0)');
+  const gradientOrange = ctx.createLinearGradient(0, 0, 0, 260);
+  gradientOrange.addColorStop(0, 'rgba(247, 147, 30, 0.3)');
+  gradientOrange.addColorStop(1, 'rgba(247, 147, 30, 0.0)');
   
   chartInstance = new Chart(ctx, {
     type: 'line',
@@ -174,35 +172,35 @@ function initChart() {
         {
           label: 'เงินเข้า',
           data: mockData.chart.incoming,
-          borderColor: '#6df3a6',
+          borderColor: '#4CAF50',
           backgroundColor: gradientGreen,
           borderWidth: 3,
           tension: 0.4,
           fill: true,
           pointRadius: 5,
-          pointBackgroundColor: '#6df3a6',
-          pointBorderColor: '#050608',
+          pointBackgroundColor: '#4CAF50',
+          pointBorderColor: '#1a1a1a',
           pointBorderWidth: 2,
           pointHoverRadius: 8,
-          pointHoverBackgroundColor: '#8ff7bc',
-          pointHoverBorderColor: '#050608',
+          pointHoverBackgroundColor: '#6FCF73',
+          pointHoverBorderColor: '#1a1a1a',
           pointHoverBorderWidth: 3
         },
         {
           label: 'เงินออก',
           data: mockData.chart.outgoing,
-          borderColor: '#53d3ff',
-          backgroundColor: gradientCyan,
+          borderColor: '#F7931E',
+          backgroundColor: gradientOrange,
           borderWidth: 3,
           tension: 0.4,
           fill: true,
           pointRadius: 5,
-          pointBackgroundColor: '#53d3ff',
-          pointBorderColor: '#050608',
+          pointBackgroundColor: '#F7931E',
+          pointBorderColor: '#1a1a1a',
           pointBorderWidth: 2,
           pointHoverRadius: 8,
-          pointHoverBackgroundColor: '#7de3ff',
-          pointHoverBorderColor: '#050608',
+          pointHoverBackgroundColor: '#FFAA42',
+          pointHoverBorderColor: '#1a1a1a',
           pointHoverBorderWidth: 3
         }
       ]
@@ -215,10 +213,10 @@ function initChart() {
           display: false
         },
         tooltip: {
-          backgroundColor: 'rgba(18, 22, 30, 0.95)',
-          titleColor: '#f8fafc',
-          bodyColor: '#f8fafc',
-          borderColor: 'rgba(83, 211, 255, 0.25)',
+          backgroundColor: '#3a3a3a',
+          titleColor: '#ffffff',
+          bodyColor: '#ffffff',
+          borderColor: 'rgba(247, 147, 30, 0.3)',
           borderWidth: 1,
           padding: 14,
           cornerRadius: 12,
@@ -243,10 +241,10 @@ function initChart() {
       scales: {
         x: {
           grid: {
-            color: 'rgba(255, 255, 255, 0.03)'
+            color: 'rgba(255, 255, 255, 0.05)'
           },
           ticks: {
-            color: '#64748b',
+            color: '#808080',
             font: {
               size: 12,
               weight: '600',
@@ -256,10 +254,10 @@ function initChart() {
         },
         y: {
           grid: {
-            color: 'rgba(255, 255, 255, 0.03)'
+            color: 'rgba(255, 255, 255, 0.05)'
           },
           ticks: {
-            color: '#64748b',
+            color: '#808080',
             font: {
               size: 11,
               weight: '600',
@@ -284,24 +282,27 @@ function initChart() {
 }
 
 // ========================================
-// Transfer Modal
+// Transfer Modal - TrueMoney Style
 // ========================================
 
 function openTransferModal(type) {
   currentTransferType = type;
   
   const overlay = document.getElementById('transfer-modal-overlay');
-  const modal = document.getElementById('transfer-modal');
-  const isMobile = window.innerWidth <= 768;
   
-  // Get amount from form
+  // Get amount and phone from form
   let amount = '';
+  let phone = '';
+  
   if (type === 'p2p') {
     amount = document.getElementById('p2p-amount')?.value || '';
+    phone = document.getElementById('p2p-phone')?.value || '08XXXXXXXX';
   } else if (type === 'promptpay') {
     amount = document.getElementById('pp-amount')?.value || '';
+    phone = document.getElementById('pp-number')?.value || '08XXXXXXXX';
   } else if (type === 'bank') {
     amount = document.getElementById('bank-amount')?.value || '';
+    phone = document.getElementById('bank-account')?.value || 'XXX-X-XXXXX-X';
   }
   
   // Mock receiver data
@@ -311,14 +312,21 @@ function openTransferModal(type) {
   // Update modal content
   document.getElementById('confirm-receiver').textContent = receiver;
   document.getElementById('confirm-receiver-en').textContent = receiverEn;
+  document.getElementById('confirm-phone').textContent = phone || '082XXXXXXXX';
   document.getElementById('confirm-amount').textContent = amount 
-    ? '฿ ' + parseFloat(amount).toLocaleString('th-TH', { minimumFractionDigits: 2 }) 
-    : '฿ 0.00';
+    ? '฿' + parseFloat(amount).toLocaleString('th-TH', { minimumFractionDigits: 2 }) 
+    : '฿1.00';
+  
+  // Update modal title based on type
+  const modalTitle = document.querySelector('.modal-title');
+  if (modalTitle) {
+    if (type === 'p2p') modalTitle.textContent = 'ยืนยันโอน P2P';
+    else if (type === 'promptpay') modalTitle.textContent = 'ยืนยันโอนพร้อมเพย์';
+    else if (type === 'bank') modalTitle.textContent = 'ยืนยันโอนธนาคาร';
+  }
   
   // Show modal
   overlay.classList.add('open');
-  
-  // Mobile bottom sheet behavior handled by CSS
 }
 
 function closeTransferModal() {
@@ -376,7 +384,7 @@ function renderHistory(data) {
   
   if (!data || data.length === 0) {
     list.innerHTML = `
-      <div style="text-align:center;padding:40px;color:var(--text-dim);font-weight:600;">
+      <div style="text-align:center;padding:40px;color:#808080;font-weight:600;">
         ไม่พบรายการ
       </div>
     `;
@@ -385,10 +393,15 @@ function renderHistory(data) {
   
   list.innerHTML = data.map(tx => `
     <div class="tx-item ${tx.type}">
-      <div class="tx-icon ${tx.type}">${tx.type === 'in' ? '💰' : '💸'}</div>
+      <div class="tx-icon ${tx.type}">
+        ${tx.type === 'in' 
+          ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/></svg>'
+        }
+      </div>
       <div class="tx-info">
         <div class="tx-title">${tx.title}</div>
-        <div class="tx-sub">${tx.date} · <span style="color:var(--green-light);font-weight:600;">${tx.status}</span></div>
+        <div class="tx-sub">${tx.date} · <span style="color:#6FCF73;font-weight:600;">${tx.status}</span></div>
       </div>
       <div class="tx-amount ${tx.type}">${tx.type === 'in' ? '+' : ''}฿ ${Math.abs(tx.amount).toLocaleString()}</div>
     </div>
@@ -405,11 +418,11 @@ function renderAccounts() {
   
   tbody.innerHTML = mockData.accounts.map(account => `
     <tr>
-      <td><strong style="color:var(--text);">${account.name}</strong></td>
-      <td style="color:var(--text-dim);">${account.phone}</td>
+      <td><strong style="color:#fff;">${account.name}</strong></td>
+      <td style="color:#b0b0b0;">${account.phone}</td>
       <td>
         <span class="badge ${account.status === 'active' ? 'badge-green' : 'badge-yellow'}">
-          ${account.status === 'active' ? '● ใช้งาน' : '○ ไม่ใช้งาน'}
+          ${account.status === 'active' ? 'ใช้งาน' : 'ไม่ใช้งาน'}
         </span>
       </td>
     </tr>
@@ -484,15 +497,10 @@ function createEnvelope() {
 // ========================================
 
 function saveAPI() {
-  const url = document.getElementById('api-url')?.value;
-  const token = document.getElementById('api-token')?.value;
-  
-  // Simulate save
   showToast('บันทึก API แล้ว', 'success');
 }
 
 function testAPI() {
-  // Simulate API test
   showToast('กำลังทดสอบ...', 'info');
   
   setTimeout(() => {
@@ -501,7 +509,6 @@ function testAPI() {
 }
 
 function exportCSV() {
-  // Simulate CSV export
   showToast('Export CSV แล้ว', 'success');
   
   // Create and download fake CSV
@@ -519,6 +526,17 @@ function exportCSV() {
 
 function simulateError() {
   showToast('เกิดข้อผิดพลาด', 'error');
+}
+
+// ========================================
+// Bank Selection
+// ========================================
+
+function selectBank(bankCode) {
+  const select = document.getElementById('bank-select');
+  if (select) {
+    select.value = bankCode;
+  }
 }
 
 // ========================================
@@ -549,13 +567,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // ========================================
   // Event Listeners
   // ========================================
-  
-  // Navigation clicks (already handled by onclick in HTML, but adding for robustness)
-  document.querySelectorAll('[data-page]').forEach(item => {
-    item.addEventListener('click', function() {
-      showPage(this.dataset.page);
-    });
-  });
   
   // Transfer buttons
   document.getElementById('btn-p2p')?.addEventListener('click', () => openTransferModal('p2p'));
@@ -601,6 +612,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // Bank items click to select
+  document.querySelectorAll('.bank-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const bankCode = this.dataset.bank;
+      if (bankCode) {
+        selectBank(bankCode);
+        showToast('เลือก ' + this.querySelector('span').textContent, 'info');
+      }
+    });
+  });
+  
   // Handle escape key to close modals
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -642,6 +664,3 @@ function formatDate(dateString) {
                   'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
   return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear() + 543}`;
 }
-
-// Log for debugging
-console.log('[v0] RAZEN Wallet Console initialized');
