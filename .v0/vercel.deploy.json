@@ -1,0 +1,11 @@
+{
+  "buildCommand": "node .v0/inject-built-with-v0.mjs && echo 'Static site ready'",
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

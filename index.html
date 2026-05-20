@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>RAZEN Wallet Console - Transfer Console</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>RAZEN Wallet Console</title>
   <meta name="description" content="ระบบจัดการกระเป๋าเงินอิเล็กทรอนิกส์ RAZEN Wallet Console">
   <meta name="theme-color" content="#1a1a1a">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23f7931e' rx='20' width='100' height='100'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-weight='bold'>W</text></svg>">
@@ -14,11 +17,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <!-- Toast Container -->
   <div class="toast-container" id="toast-container"></div>
 
   <!-- Mobile Header -->
-  <div class="mobile-header">
+  <header class="mobile-header" id="mobile-header">
     <div class="mobile-header-brand">
       <div class="brand-logo">
         <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,11 +37,11 @@
     <button class="hamburger" onclick="toggleDrawer()" aria-label="เมนู">
       <span></span><span></span><span></span>
     </button>
-  </div>
+  </header>
 
   <!-- Drawer Overlay & Sidebar (Mobile) -->
   <div class="drawer-overlay" id="drawer-overlay" onclick="toggleDrawer()"></div>
-  <div class="drawer-sidebar" id="drawer-sidebar">
+  <aside class="drawer-sidebar" id="drawer-sidebar">
     <div class="brand">
       <div class="brand-logo">
         <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,9 +81,8 @@
         เครื่องมือ
       </div>
     </nav>
-  </div>
+  </aside>
 
-  <!-- App Wrapper -->
   <div class="app-wrapper">
     <!-- Desktop Sidebar -->
     <aside class="sidebar-desktop">
@@ -124,141 +125,128 @@
           เครื่องมือ
         </div>
       </nav>
-      <div class="sidebar-footer">
-        RAZEN Wallet Console v1.0<br>© 2026
-      </div>
+      <div class="sidebar-footer">RAZEN Wallet Console v1.0<br>&copy; 2026</div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-      <!-- Dashboard Page -->
+      <!-- Dashboard -->
       <section class="page-section active" id="page-dashboard">
         <div class="page-header">
           <h2>แดชบอร์ด</h2>
           <p>ภาพรวมระบบโอนเงิน</p>
         </div>
 
-        <!-- Balance Card -->
         <div class="card balance-card">
-          <div class="balance-label">ยอดเงินคงเหลือ</div>
-          <div class="balance-amount">฿ 12,680.00</div>
+          <div class="balance-top">
+            <div>
+              <div class="balance-label">ยอดเงินคงเหลือ</div>
+              <div class="balance-amount">&#3647; 12,680.00</div>
+            </div>
+            <div class="balance-logo">
+              <svg viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 5L15 45H20L25 20" stroke="rgba(255,255,255,0.5)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M20 20L30 45H35L40 20" stroke="rgba(255,255,255,0.35)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M35 20L45 45H50L55 5" stroke="rgba(255,255,255,0.25)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
           <div class="balance-meta">
-            <span>บัญชีที่ 1 · 092****708</span>
-            <span class="badge badge-green">ใช้งาน</span>
+            <span>บัญชีที่ 1 &middot; 092****708</span>
+            <span class="badge badge-active">ใช้งาน</span>
           </div>
         </div>
 
-        <!-- Summary Cards -->
         <div class="summary-grid">
-          <div class="card summary-card in">
-            <span class="label">เงินเข้า</span>
-            <span class="value">฿ 8,400</span>
+          <div class="card summary-card summary-in">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+            </div>
+            <div>
+              <span class="summary-label">เงินเข้า</span>
+              <span class="summary-value in">&#3647; 8,400</span>
+            </div>
           </div>
-          <div class="card summary-card out">
-            <span class="label">เงินออก</span>
-            <span class="value">฿ 3,220</span>
+          <div class="card summary-card summary-out">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/></svg>
+            </div>
+            <div>
+              <span class="summary-label">เงินออก</span>
+              <span class="summary-value out">&#3647; 3,220</span>
+            </div>
           </div>
-          <div class="card summary-card pending">
-            <span class="label">รอดำเนินการ</span>
-            <span class="value">3</span>
+          <div class="card summary-card summary-pending">
+            <div class="summary-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="summary-label">รอดำเนินการ</span>
+              <span class="summary-value pending">3</span>
+            </div>
           </div>
         </div>
 
-        <!-- Chart Section -->
         <div class="section-title">กราฟเงินเข้า / ออก</div>
         <div class="card chart-card">
-          <div class="chart-header">
-            <div class="chart-legend">
-              <div class="legend-item">
-                <div class="legend-dot green"></div>เงินเข้า
-              </div>
-              <div class="legend-item">
-                <div class="legend-dot orange"></div>เงินออก
-              </div>
-            </div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot green"></div>เงินเข้า</div>
+            <div class="legend-item"><div class="legend-dot orange"></div>เงินออก</div>
           </div>
-          <div class="chart-container">
-            <canvas id="balanceChart"></canvas>
-          </div>
+          <div class="chart-wrap"><canvas id="balanceChart"></canvas></div>
         </div>
 
-        <!-- Quick Actions -->
         <div class="section-title">ทำรายการด่วน</div>
         <div class="quick-actions">
-          <div class="card qa-card" data-goto="transfer">
-            <div class="qa-icon p2p">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/>
-                <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/>
-              </svg>
+          <button class="qa-btn" data-goto="transfer">
+            <div class="qa-icon qa-p2p">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
             </div>
-            <span class="qa-label">P2P</span>
-          </div>
-          <div class="card qa-card" data-goto="transfer">
-            <div class="qa-icon promptpay">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-              </svg>
+            <span>P2P</span>
+          </button>
+          <button class="qa-btn" data-goto="transfer">
+            <div class="qa-icon qa-pp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
             </div>
-            <span class="qa-label">พร้อมเพย์</span>
-          </div>
-          <div class="card qa-card" data-goto="transfer">
-            <div class="qa-icon bank">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v3"/><path d="M12 14v3"/><path d="M16 14v3"/>
-              </svg>
+            <span>พร้อมเพย์</span>
+          </button>
+          <button class="qa-btn" data-goto="transfer">
+            <div class="qa-icon qa-bank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v3"/><path d="M12 14v3"/><path d="M16 14v3"/></svg>
             </div>
-            <span class="qa-label">ธนาคาร</span>
-          </div>
-          <div class="card qa-card" data-goto="envelope">
-            <div class="qa-icon envelope">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-              </svg>
+            <span>ธนาคาร</span>
+          </button>
+          <button class="qa-btn" data-goto="envelope">
+            <div class="qa-icon qa-env">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
-            <span class="qa-label">ซอง</span>
-          </div>
+            <span>ซอง</span>
+          </button>
         </div>
 
-        <!-- Recent Transactions -->
         <div class="section-title">รายการล่าสุด</div>
-        <div class="card">
+        <div class="card card-flush">
           <div class="tx-list" id="dashboard-tx-list">
-            <div class="tx-item out">
-              <div class="tx-icon out">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/>
-                </svg>
+            <div class="tx-item">
+              <div class="tx-icon tx-out">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/></svg>
               </div>
-              <div class="tx-info">
-                <div class="tx-title">โอน P2P</div>
-                <div class="tx-sub">ไปยัง 081****234 · 20 พ.ค. 2026</div>
-              </div>
-              <div class="tx-amount out">-฿ 1,200</div>
+              <div class="tx-info"><div class="tx-title">โอน P2P</div><div class="tx-sub">ไปยัง 081****234 &middot; 20 พ.ค. 2026</div></div>
+              <div class="tx-amount tx-amount-out">-&#3647;1,200</div>
             </div>
-            <div class="tx-item in">
-              <div class="tx-icon in">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/>
-                </svg>
+            <div class="tx-item">
+              <div class="tx-icon tx-in">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
               </div>
-              <div class="tx-info">
-                <div class="tx-title">รับเงิน</div>
-                <div class="tx-sub">จาก 089****567 · 19 พ.ค. 2026</div>
-              </div>
-              <div class="tx-amount in">+฿ 2,500</div>
+              <div class="tx-info"><div class="tx-title">รับเงิน</div><div class="tx-sub">จาก 089****567 &middot; 19 พ.ค. 2026</div></div>
+              <div class="tx-amount tx-amount-in">+&#3647;2,500</div>
             </div>
-            <div class="tx-item out">
-              <div class="tx-icon pp">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-                </svg>
+            <div class="tx-item">
+              <div class="tx-icon tx-pp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               </div>
-              <div class="tx-info">
-                <div class="tx-title">โอนพร้อมเพย์</div>
-                <div class="tx-sub">ไปยัง 098****123 · 18 พ.ค. 2026</div>
-              </div>
-              <div class="tx-amount out">-฿ 800</div>
+              <div class="tx-info"><div class="tx-title">โอนพร้อมเพย์</div><div class="tx-sub">ไปยัง 098****123 &middot; 18 พ.ค. 2026</div></div>
+              <div class="tx-amount tx-amount-out">-&#3647;800</div>
             </div>
           </div>
         </div>
@@ -271,145 +259,96 @@
           <p>เลือกช่องทางการโอน</p>
         </div>
 
-        <div class="transfer-grid">
-          <!-- P2P Transfer -->
-          <div class="card transfer-card">
-            <h3>
-              <span class="tx-type-icon p2p">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/>
-                  <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/>
-                </svg>
-              </span>
-              โอน P2P
-            </h3>
+        <div class="transfer-tabs">
+          <button class="tab-btn active" data-tab="tab-p2p" onclick="switchTab('tab-p2p')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+            P2P
+          </button>
+          <button class="tab-btn" data-tab="tab-pp" onclick="switchTab('tab-pp')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            พร้อมเพย์
+          </button>
+          <button class="tab-btn" data-tab="tab-bank" onclick="switchTab('tab-bank')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/></svg>
+            ธนาคาร
+          </button>
+        </div>
+
+        <!-- P2P Tab -->
+        <div class="tab-content active" id="tab-p2p">
+          <div class="card">
             <div class="form-group">
               <label>เบอร์ปลายทาง</label>
-              <input type="tel" class="form-input" id="p2p-phone" placeholder="08XXXXXXXX" maxlength="10">
+              <input type="tel" class="form-input" id="p2p-phone" placeholder="08XXXXXXXX" maxlength="10" inputmode="tel" autocomplete="tel">
             </div>
             <div class="form-group">
-              <label>จำนวน</label>
-              <input type="number" class="form-input" id="p2p-amount" placeholder="0.00">
+              <label>จำนวน (&#3647;)</label>
+              <input type="text" class="form-input form-input-lg" id="p2p-amount" placeholder="0.00" inputmode="decimal">
             </div>
             <div class="form-group">
               <label>ข้อความ</label>
               <input type="text" class="form-input" id="p2p-note" placeholder="ข้อความถึงผู้รับ (ไม่บังคับ)">
             </div>
-            <button class="btn btn-primary" id="btn-p2p">โอนเงิน</button>
+            <button class="btn btn-orange" id="btn-p2p">โอนเงิน</button>
           </div>
+        </div>
 
-          <!-- PromptPay Transfer -->
-          <div class="card transfer-card">
-            <h3>
-              <span class="tx-type-icon promptpay">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-                </svg>
-              </span>
-              พร้อมเพย์
-            </h3>
+        <!-- PromptPay Tab -->
+        <div class="tab-content" id="tab-pp">
+          <div class="card">
             <div class="form-group">
               <label>หมายเลขพร้อมเพย์</label>
-              <input type="text" class="form-input" id="pp-number" placeholder="เบอร์มือถือ / เลขบัตรประชาชน">
+              <input type="tel" class="form-input" id="pp-number" placeholder="เบอร์มือถือ / เลขบัตรประชาชน" inputmode="tel">
             </div>
             <div class="form-group">
-              <label>จำนวน</label>
-              <input type="number" class="form-input" id="pp-amount" placeholder="0.00">
+              <label>จำนวน (&#3647;)</label>
+              <input type="text" class="form-input form-input-lg" id="pp-amount" placeholder="0.00" inputmode="decimal">
             </div>
-            <button class="btn btn-primary" id="btn-pp">โอนเงิน</button>
+            <button class="btn btn-blue" id="btn-pp">โอนเงิน</button>
           </div>
+        </div>
 
-          <!-- Bank Transfer -->
-          <div class="card transfer-card">
-            <h3>
-              <span class="tx-type-icon bank">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 21h18"/><path d="M3 10h18"/><path d="M5 6l7-3 7 3"/><path d="M4 10v11"/><path d="M20 10v11"/><path d="M8 14v3"/><path d="M12 14v3"/><path d="M16 14v3"/>
-                </svg>
-              </span>
-              ธนาคาร
-            </h3>
+        <!-- Bank Tab -->
+        <div class="tab-content" id="tab-bank">
+          <div class="card">
             <div class="form-group">
-              <label>ธนาคาร</label>
-              <div class="bank-select-wrapper">
-                <select class="form-select" id="bank-select">
-                  <option value="">เลือกธนาคาร</option>
-                  <option value="scb">ธนาคารไทยพาณิชย์</option>
-                  <option value="bbl">ธนาคารกรุงเทพ</option>
-                  <option value="kbank">ธนาคารกสิกรไทย</option>
-                  <option value="ktb">ธนาคารกรุงไทย</option>
-                  <option value="gsb">ธนาคารออมสิน</option>
-                  <option value="baac">ธนาคาร ธ.ก.ส.</option>
-                  <option value="ttb">ธนาคารทีเอ็มบีธนชาต</option>
-                  <option value="uob">ธนาคารยูโอบี</option>
-                  <option value="bay">ธนาคารกรุงศรีอยุธยา</option>
-                </select>
+              <label>เลือกธนาคาร</label>
+              <div class="bank-grid" id="bank-grid">
+                <button class="bank-chip" data-bank="scb" type="button">
+                  <span class="bank-dot" style="background:#4E2A84"></span>SCB
+                </button>
+                <button class="bank-chip" data-bank="kbank" type="button">
+                  <span class="bank-dot" style="background:#138F2D"></span>KBANK
+                </button>
+                <button class="bank-chip" data-bank="bbl" type="button">
+                  <span class="bank-dot" style="background:#1E3A8A"></span>BBL
+                </button>
+                <button class="bank-chip" data-bank="ktb" type="button">
+                  <span class="bank-dot" style="background:#1BA5E0"></span>KTB
+                </button>
+                <button class="bank-chip" data-bank="gsb" type="button">
+                  <span class="bank-dot" style="background:#EB1E8C"></span>GSB
+                </button>
+                <button class="bank-chip" data-bank="bay" type="button">
+                  <span class="bank-dot" style="background:#FEC601"></span>BAY
+                </button>
+                <button class="bank-chip" data-bank="ttb" type="button">
+                  <span class="bank-dot" style="background:#0066B3"></span>TTB
+                </button>
+                <button class="bank-chip" data-bank="baac" type="button">
+                  <span class="bank-dot" style="background:#8B6914"></span>BAAC
+                </button>
               </div>
             </div>
             <div class="form-group">
               <label>เลขบัญชี</label>
-              <input type="text" class="form-input" id="bank-account" placeholder="XXX-X-XXXXX-X">
+              <input type="tel" class="form-input" id="bank-account" placeholder="XXX-X-XXXXX-X" inputmode="numeric">
             </div>
             <div class="form-group">
-              <label>จำนวน</label>
-              <input type="number" class="form-input" id="bank-amount" placeholder="0.00">
+              <label>จำนวน (&#3647;)</label>
+              <input type="text" class="form-input form-input-lg" id="bank-amount" placeholder="0.00" inputmode="decimal">
             </div>
-            <button class="btn btn-primary" id="btn-bank">โอนเงิน</button>
-          </div>
-        </div>
-
-        <!-- Bank List Preview -->
-        <div class="section-title">รายชื่อธนาคารที่รองรับ</div>
-        <div class="card">
-          <div class="bank-list">
-            <div class="bank-item" data-bank="scb">
-              <div class="bank-icon scb">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <span>ธนาคารไทยพาณิชย์</span>
-            </div>
-            <div class="bank-item" data-bank="bbl">
-              <div class="bank-icon bbl">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/></svg>
-              </div>
-              <span>ธนาคารกรุงเทพ</span>
-            </div>
-            <div class="bank-item" data-bank="kbank">
-              <div class="bank-icon kbank">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-              </div>
-              <span>ธนาคารกสิกรไทย</span>
-            </div>
-            <div class="bank-item" data-bank="ktb">
-              <div class="bank-icon ktb">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <span>ธนาคารกรุงไทย</span>
-            </div>
-            <div class="bank-item" data-bank="gsb">
-              <div class="bank-icon gsb">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <span>ธนาคารออมสิน</span>
-            </div>
-            <div class="bank-item" data-bank="baac">
-              <div class="bank-icon baac">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <span>ธนาคาร ธ.ก.ส.</span>
-            </div>
-            <div class="bank-item" data-bank="ttb">
-              <div class="bank-icon ttb">
-                <svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4"/></svg>
-              </div>
-              <span>ธนาคารทีเอ็มบีธนชาต</span>
-            </div>
-            <div class="bank-item" data-bank="bay">
-              <div class="bank-icon bay">
-                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <span>ธนาคารกรุงศรีอยุธยา</span>
-            </div>
+            <button class="btn btn-green" id="btn-bank">โอนเงิน</button>
           </div>
         </div>
       </section>
@@ -420,22 +359,20 @@
           <h2>ประวัติรายการ</h2>
           <p>ค้นหาและดูรายการย้อนหลัง</p>
         </div>
-
         <div class="card">
-          <div class="filter-bar">
+          <div class="filter-row">
             <div class="form-group">
-              <label>วันที่เริ่มต้น</label>
+              <label>เริ่มต้น</label>
               <input type="date" class="form-input" id="hist-start">
             </div>
             <div class="form-group">
-              <label>วันที่สิ้นสุด</label>
+              <label>สิ้นสุด</label>
               <input type="date" class="form-input" id="hist-end">
             </div>
-            <button class="btn btn-primary" id="btn-search">ค้นหา</button>
           </div>
+          <button class="btn btn-orange" id="btn-search" style="margin-top:12px">ค้นหา</button>
         </div>
-
-        <div class="card" style="margin-top:16px;">
+        <div class="card card-flush" style="margin-top:14px;">
           <div class="tx-list" id="history-list"></div>
         </div>
       </section>
@@ -446,23 +383,8 @@
           <h2>บัญชี</h2>
           <p>จัดการบัญชี Wallet</p>
         </div>
-
-        <div class="card" style="margin-bottom:16px;">
-          <button class="btn btn-primary" onclick="openAccountSheet()">+ เพิ่มบัญชี</button>
-        </div>
-
-        <div class="card accounts-table-wrap">
-          <table class="accounts-table">
-            <thead>
-              <tr>
-                <th>ชื่อ</th>
-                <th>เบอร์</th>
-                <th>สถานะ</th>
-              </tr>
-            </thead>
-            <tbody id="accounts-tbody"></tbody>
-          </table>
-        </div>
+        <button class="btn btn-orange" onclick="openAccountSheet()" style="margin-bottom:16px">+ เพิ่มบัญชี</button>
+        <div id="accounts-list" class="accounts-list"></div>
       </section>
 
       <!-- Envelope Page -->
@@ -471,28 +393,25 @@
           <h2>ซองอั่งเปา</h2>
           <p>สร้างซองอั่งเปาแจกเงิน</p>
         </div>
-
-        <div class="card envelope-form">
+        <div class="card">
           <div class="envelope-preview">
             <div class="envelope-visual">
               <div class="envelope-top"></div>
               <div class="envelope-shine"></div>
               <div class="envelope-gold">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label>จำนวนเงินรวม</label>
-            <input type="number" class="form-input" id="env-total" placeholder="0.00">
+            <label>จำนวนเงินรวม (&#3647;)</label>
+            <input type="text" class="form-input form-input-lg" id="env-total" placeholder="0.00" inputmode="decimal">
           </div>
           <div class="form-group">
             <label>จำนวนซอง</label>
-            <input type="number" class="form-input" id="env-count" placeholder="1" min="1">
+            <input type="number" class="form-input" id="env-count" placeholder="1" min="1" inputmode="numeric">
           </div>
-          <button class="btn btn-primary" id="btn-envelope">สร้างซอง</button>
+          <button class="btn btn-red" id="btn-envelope">สร้างซอง</button>
         </div>
       </section>
 
@@ -502,164 +421,98 @@
           <h2>เครื่องมือ</h2>
           <p>ตั้งค่า API และเครื่องมือระบบ</p>
         </div>
-
-        <div class="tools-grid">
-          <div class="card tools-card">
-            <h3>ตั้งค่า API</h3>
-            <div class="form-group">
-              <label>API Base URL</label>
-              <input type="text" class="form-input" id="api-url" placeholder="https://api.example.com/v1">
-            </div>
-            <div class="form-group">
-              <label>API Token</label>
-              <input type="password" class="form-input" id="api-token" placeholder="Bearer token...">
-            </div>
-            <div class="btn-row">
-              <button class="btn btn-primary" id="btn-save-api">บันทึก</button>
-              <button class="btn btn-success" id="btn-test-api">ทดสอบ</button>
-            </div>
+        <div class="card" style="margin-bottom:14px">
+          <h3 class="card-title">ตั้งค่า API</h3>
+          <div class="form-group">
+            <label>API Base URL</label>
+            <input type="url" class="form-input" id="api-url" placeholder="https://api.example.com/v1" inputmode="url">
           </div>
-
-          <div class="card tools-card">
-            <h3>ข้อมูล & การจำลอง</h3>
-            <p class="tools-desc">ส่งออกรายการหรือจำลองสถานการณ์ต่างๆ</p>
-            <div class="btn-col">
-              <button class="btn btn-secondary" id="btn-export-csv">Export CSV</button>
-              <button class="btn btn-danger" id="btn-sim-error">จำลอง Error</button>
-            </div>
+          <div class="form-group">
+            <label>API Token</label>
+            <input type="password" class="form-input" id="api-token" placeholder="Bearer token...">
+          </div>
+          <div class="btn-pair">
+            <button class="btn btn-orange" id="btn-save-api">บันทึก</button>
+            <button class="btn btn-green-outline" id="btn-test-api">ทดสอบ</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="card-title">ข้อมูล & การจำลอง</h3>
+          <p class="card-desc">ส่งออกรายการหรือจำลองสถานการณ์</p>
+          <div class="btn-stack">
+            <button class="btn btn-secondary" id="btn-export-csv">Export CSV</button>
+            <button class="btn btn-red-outline" id="btn-sim-error">จำลอง Error</button>
           </div>
         </div>
       </section>
     </main>
   </div>
 
-  <!-- Mobile Bottom Navigation -->
-  <nav class="mobile-nav">
-    <div class="mobile-nav-inner">
-      <button class="mobile-nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-        แดชบอร์ด
-      </button>
-      <button class="mobile-nav-item" data-page="transfer" onclick="showPage('transfer')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-          <polyline points="17 1 21 5 17 9"/>
-          <path d="M3 11V9a4 4 0 014-4h14"/>
-          <polyline points="7 23 3 19 7 15"/>
-          <path d="M21 13v2a4 4 0 01-4 4H3"/>
-        </svg>
-        โอนเงิน
-      </button>
-      <button class="mobile-nav-item" data-page="history" onclick="showPage('history')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12 6 12 12 16 14"/>
-        </svg>
-        ประวัติ
-      </button>
-      <button class="mobile-nav-item" data-page="accounts" onclick="showPage('accounts')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-          <path d="M16 3.13a4 4 0 010 7.75"/>
-        </svg>
-        บัญชี
-      </button>
-      <button class="mobile-nav-item" data-page="tools" onclick="showPage('tools')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
-          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-        </svg>
-        เครื่องมือ
-      </button>
-    </div>
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <button class="mnav active" data-page="dashboard" onclick="showPage('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>หน้าหลัก</span>
+    </button>
+    <button class="mnav" data-page="transfer" onclick="showPage('transfer')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+      <span>โอนเงิน</span>
+    </button>
+    <button class="mnav" data-page="history" onclick="showPage('history')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <span>ประวัติ</span>
+    </button>
+    <button class="mnav" data-page="accounts" onclick="showPage('accounts')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+      <span>บัญชี</span>
+    </button>
+    <button class="mnav" data-page="tools" onclick="showPage('tools')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      <span>เครื่องมือ</span>
+    </button>
   </nav>
 
-  <!-- Transfer Confirmation Modal -->
+  <!-- Transfer Confirmation Modal (Bottom Sheet on mobile) -->
   <div class="modal-overlay" id="transfer-modal-overlay">
-    <div class="modal-card" id="transfer-modal">
-      <!-- Question Mark Icon -->
-      <div class="modal-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-          <line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
+    <div class="modal-sheet" id="transfer-modal">
+      <div class="sheet-handle"></div>
+      <div class="modal-q">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
       </div>
-      <div class="modal-title">ยืนยันโอน P2P</div>
-      
-      <!-- Avatar -->
-      <div class="modal-avatar">
-        <div class="avatar-placeholder">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-          </svg>
+      <div class="modal-heading" id="modal-heading">ยืนยันโอน P2P</div>
+      <div class="modal-avatar-wrap">
+        <div class="modal-avatar-circle">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
         </div>
-        <div class="avatar-name">
-          <span class="name-th" id="confirm-receiver">นาย สมชาย ใจดี</span>
-          <span class="name-en" id="confirm-receiver-en">Somchai Jaidee</span>
-        </div>
+        <div class="modal-name-th" id="confirm-receiver">นาย สมชาย ใจดี</div>
+        <div class="modal-name-en" id="confirm-receiver-en">Somchai Jaidee</div>
       </div>
-
-      <div class="confirm-details">
-        <div class="confirm-detail">
-          <span class="label">เบอร์ผู้รับ</span>
-          <span class="value" id="confirm-phone">082XXXXXXXX</span>
-        </div>
-        <div class="confirm-detail">
-          <span class="label">จำนวน</span>
-          <span class="value amount" id="confirm-amount">฿1.00</span>
-        </div>
-        <div class="confirm-detail">
-          <span class="label">สถานะผู้รับ</span>
-          <span class="value status-ok">ปกติ</span>
-        </div>
+      <div class="confirm-rows">
+        <div class="confirm-row"><span>เบอร์ผู้รับ</span><strong id="confirm-phone">082XXXXXXXX</strong></div>
+        <div class="confirm-row"><span>จำนวน</span><strong class="confirm-amount" id="confirm-amount">&#3647;1.00</strong></div>
+        <div class="confirm-row"><span>สถานะผู้รับ</span><strong class="confirm-ok">ปกติ</strong></div>
       </div>
-
-      <div class="btn-row modal-buttons">
-        <button class="btn btn-primary" onclick="confirmTransfer()">โอนเงิน</button>
-        <button class="btn btn-cancel" onclick="closeTransferModal()">ยกเลิก</button>
+      <div class="modal-actions">
+        <button class="btn btn-orange" onclick="confirmTransfer()">โอนเงิน</button>
+        <button class="btn btn-gray" onclick="closeTransferModal()">ยกเลิก</button>
       </div>
     </div>
   </div>
 
   <!-- Account Bottom Sheet -->
-  <div class="bottom-sheet-overlay" id="account-sheet-overlay"></div>
+  <div class="sheet-overlay" id="account-sheet-overlay"></div>
   <div class="bottom-sheet" id="account-sheet">
-    <div class="bottom-sheet-handle"></div>
-    <div class="modal-title">เพิ่มบัญชีใหม่</div>
+    <div class="sheet-handle"></div>
+    <h3 class="sheet-title">เพิ่มบัญชีใหม่</h3>
     <form id="account-form">
-      <div class="form-group">
-        <label>ชื่อบัญชี</label>
-        <input type="text" class="form-input" id="acc-name" placeholder="เช่น บัญชีหลัก" required>
-      </div>
-      <div class="form-group">
-        <label>เบอร์ Wallet</label>
-        <input type="tel" class="form-input" id="acc-phone" placeholder="08XXXXXXXX" maxlength="10" required>
-      </div>
-      <div class="form-group">
-        <label>TMN Key ID</label>
-        <input type="text" class="form-input" id="acc-tmn-key" placeholder="TMN Key ID">
-      </div>
-      <div class="form-group">
-        <label>Login Token</label>
-        <input type="text" class="form-input" id="acc-token" placeholder="Login Token">
-      </div>
-      <div class="form-group">
-        <label>PIN 6 หลัก</label>
-        <input type="password" class="form-input" id="acc-pin" placeholder="******" maxlength="6">
-      </div>
-      <div class="form-group">
-        <label>TMN ID</label>
-        <input type="text" class="form-input" id="acc-tmn-id" placeholder="TMN ID">
-      </div>
-      <div class="form-group">
-        <label>Device ID</label>
-        <input type="text" class="form-input" id="acc-device" placeholder="Device ID">
-      </div>
-      <button type="submit" class="btn btn-primary">เชื่อมบัญชี</button>
+      <div class="form-group"><label>ชื่อบัญชี</label><input type="text" class="form-input" id="acc-name" placeholder="เช่น บัญชีหลัก" required></div>
+      <div class="form-group"><label>เบอร์ Wallet</label><input type="tel" class="form-input" id="acc-phone" placeholder="08XXXXXXXX" maxlength="10" required inputmode="tel"></div>
+      <div class="form-group"><label>TMN Key ID</label><input type="text" class="form-input" id="acc-tmn-key" placeholder="TMN Key ID"></div>
+      <div class="form-group"><label>Login Token</label><input type="text" class="form-input" id="acc-token" placeholder="Login Token"></div>
+      <div class="form-group"><label>PIN 6 หลัก</label><input type="password" class="form-input" id="acc-pin" placeholder="******" maxlength="6" inputmode="numeric"></div>
+      <div class="form-group"><label>TMN ID</label><input type="text" class="form-input" id="acc-tmn-id" placeholder="TMN ID"></div>
+      <div class="form-group"><label>Device ID</label><input type="text" class="form-input" id="acc-device" placeholder="Device ID"></div>
+      <button type="submit" class="btn btn-orange">เชื่อมบัญชี</button>
     </form>
   </div>
 
