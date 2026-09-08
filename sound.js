@@ -63,14 +63,8 @@
     if (enabled) play("tick");
   }
 
-  function mount() {
-    if (document.getElementById("razen-sound-style")) return;
-    var style = document.createElement("style");
-    style.id = "razen-sound-style";
-    style.textContent = ".razen-sound{appearance:none;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.18);color:#f3efe6;font:600 12px/1 inherit;padding:7px 10px;border-radius:999px;cursor:pointer;flex:0 0 auto}.razen-sound[aria-pressed=false]{opacity:.5}";
-    document.head.appendChild(style);
-    var header = document.getElementById("mobile-header");
-    if (!header || header.querySelector("[data-razen-sound]")) return;
+  function place(parent, before) {
+    if (!parent || parent.querySelector("[data-razen-sound]")) return;
     var b = document.createElement("button");
     b.type = "button";
     b.className = "razen-sound";
@@ -78,8 +72,21 @@
     b.setAttribute("aria-label", "เปิดหรือปิดเสียง");
     paint(b);
     b.addEventListener("click", function () { setEnabled(!enabled); });
-    var ham = header.querySelector(".hamburger");
-    header.insertBefore(b, ham || null);
+    if (before) parent.insertBefore(b, before);
+    else parent.appendChild(b);
+  }
+
+  function mount() {
+    if (!document.getElementById("razen-sound-style")) {
+      var style = document.createElement("style");
+      style.id = "razen-sound-style";
+      style.textContent = ".razen-sound{appearance:none;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.18);color:#f3efe6;font:600 12px/1 inherit;padding:7px 10px;border-radius:999px;cursor:pointer;flex:0 0 auto}.razen-sound[aria-pressed=false]{opacity:.5}.sidebar-footer .razen-sound{margin-top:10px}";
+      document.head.appendChild(style);
+    }
+    var header = document.getElementById("mobile-header");
+    if (header) place(header, header.querySelector(".hamburger"));
+    var desk = document.querySelector(".sidebar-desktop .sidebar-footer");
+    if (desk) place(desk, null);
   }
 
   document.addEventListener("pointerdown", function () { ac(); }, { once: true });
