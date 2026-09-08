@@ -389,3 +389,59 @@ document.addEventListener('DOMContentLoaded', function() {
     resizeTimer = setTimeout(function() { if (currentPage === 'dashboard' && chartInstance) chartInstance.resize(); }, 250);
   });
 });
+
+
+(function () {
+  if (!window.RazenSound) return;
+  var booted = false;
+  var skipClose = false;
+
+  var _toast = showToast;
+  showToast = function (message, type) {
+    _toast(message, type);
+    if (type === "success") RazenSound.play("success");
+    else if (type === "error") RazenSound.play("error");
+  };
+
+  var _page = showPage;
+  showPage = function (page) {
+    _page(page);
+    if (booted) RazenSound.play("nav");
+  };
+
+  var _open = openTransferModal;
+  openTransferModal = function (type) {
+    _open(type);
+    RazenSound.play("open");
+  };
+
+  var _close = closeTransferModal;
+  closeTransferModal = function () {
+    _close();
+    if (!skipClose) RazenSound.play("close");
+  };
+
+  var _confirm = confirmTransfer;
+  confirmTransfer = function () {
+    skipClose = true;
+    try { _confirm(); } finally { skipClose = false; }
+  };
+
+  var _bank = selectBank;
+  selectBank = function (el) {
+    _bank(el);
+    RazenSound.play("tick");
+  };
+
+  var _drawer = toggleDrawer;
+  toggleDrawer = function () {
+    var open = document.getElementById("drawer-sidebar").classList.contains("open");
+    _drawer();
+    RazenSound.play(open ? "close" : "open");
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    RazenSound.mount();
+    booted = true;
+  });
+})();
