@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('btn-search').addEventListener('click', searchHistory);
 
   // Quick actions
-  document.querySelectorAll('.qa-btn').forEach(function(btn) {
+  document.querySelectorAll('.qa-btn, [data-goto]').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var goto = this.getAttribute('data-goto');
       if (goto) showPage(goto);
@@ -443,5 +443,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("DOMContentLoaded", function () {
     RazenSound.mount();
     booted = true;
+    document.addEventListener("click", function (event) {
+      if (event.target.closest(".btn, .qa-btn, .tab-btn, .mnav, .nav-item, .hamburger, .header-action") && !event.target.closest("[data-razen-sound]")) RazenSound.play("tick");
+    });
   });
 })();
