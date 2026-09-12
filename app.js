@@ -443,5 +443,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener("DOMContentLoaded", function () {
     RazenSound.mount();
     booted = true;
+    document.addEventListener("click", function (event) {
+      if (event.target.closest(".btn, .qa-btn, .tab-btn, .mnav, .nav-item, .hamburger") && !event.target.closest("[data-razen-sound]")) RazenSound.play("tick");
+    });
   });
 })();
