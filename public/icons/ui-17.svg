@@ -1,0 +1,7 @@
+<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 80L25 10H42L30 55" fill="rgba(255,255,255,0.35)"/>
+                <path d="M28 55L48 10H58L43 80H28" fill="rgba(255,255,255,0.2)"/>
+                <path d="M40 80L55 10H72L57 55" fill="rgba(255,255,255,0.3)"/>
+                <path d="M57 55L72 10H78L63 80H40" fill="rgba(255,255,255,0.2)"/>
+                <path d="M65 10H82L110 80H95L75 25" fill="rgba(255,255,255,0.25)"/>
+              </svg>

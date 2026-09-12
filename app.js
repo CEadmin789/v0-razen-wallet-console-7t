@@ -33,67 +33,67 @@ const mockData = {
   ]
 };
 
-// Thai bank data with SVG mini-logos
+// Thai bank data with image mini-logos
 var banks = [
   {
     code: 'scb',
     name: 'ไทยพาณิชย์',
     short: 'SCB',
     color: '#4E2A84',
-    // SCB: Stylized elephant/crown-like shape
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#4E2A84"/><path d="M16 6l-6 4v5l6 4 6-4v-5l-6-4z" fill="#fff" opacity="0.9"/><path d="M10 15v5l6 4 6-4v-5l-6 4-6-4z" fill="#fff" opacity="0.6"/></svg>'
+
+    icon: '<img src="public/icons/runtime-1.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'kbank',
     name: 'กสิกรไทย',
     short: 'KBANK',
     color: '#138F2D',
-    // KBank: Leaf shape
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#138F2D"/><path d="M16 7c-5 0-9 4-9 9 0 3 2 5 5 6 1-3 2.5-6 4-8.5 1.5 2.5 3 5.5 4 8.5 3-1 5-3 5-6 0-5-4-9-9-9z" fill="#fff" opacity="0.9"/></svg>'
+
+    icon: '<img src="public/icons/runtime-2.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'bbl',
     name: 'กรุงเทพ',
     short: 'BBL',
     color: '#1E3A8A',
-    // BBL: Shield shape
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#1E3A8A"/><path d="M16 7L8 10v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11v-6l-8-3z" fill="#fff" opacity="0.3"/><path d="M16 9l-6 2.5v5c0 4 2.8 7.8 6 8.8 3.2-1 6-4.8 6-8.8v-5L16 9z" fill="#fff" opacity="0.6"/><text x="16" y="20" text-anchor="middle" fill="#1E3A8A" font-size="8" font-weight="bold" font-family="sans-serif">B</text></svg>'
+
+    icon: '<img src="public/icons/runtime-3.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'ktb',
     name: 'กรุงไทย',
     short: 'KTB',
     color: '#1BA5E0',
-    // KTB: Circle with emblem
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#1BA5E0"/><circle cx="16" cy="16" r="8" fill="#fff" opacity="0.3"/><circle cx="16" cy="16" r="6" fill="#fff" opacity="0.5"/><text x="16" y="19.5" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">KTB</text></svg>'
+
+    icon: '<img src="public/icons/runtime-4.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'gsb',
     name: 'ออมสิน',
     short: 'GSB',
     color: '#EB1E8C',
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#EB1E8C"/><circle cx="16" cy="14" r="5" fill="#fff" opacity="0.4"/><path d="M10 22c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="#fff" opacity="0.3"/><text x="16" y="21" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="sans-serif">GSB</text></svg>'
+    icon: '<img src="public/icons/runtime-5.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'bay',
     name: 'กรุงศรีอยุธยา',
     short: 'BAY',
     color: '#FEC601',
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#FEC601"/><path d="M16 8l2 6h6l-5 3.5 2 6.5-5-4-5 4 2-6.5L8 14h6z" fill="#fff" opacity="0.8"/></svg>'
+    icon: '<img src="public/icons/runtime-6.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'ttb',
     name: 'ทีเอ็มบีธนชาต',
     short: 'TTB',
     color: '#0066B3',
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#0066B3"/><text x="16" y="20" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">ttb</text></svg>'
+    icon: '<img src="public/icons/runtime-7.svg" alt="" aria-hidden="true">'
   },
   {
     code: 'baac',
     name: 'ธ.ก.ส.',
     short: 'BAAC',
     color: '#8B6914',
-    svg: '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><rect rx="6" width="32" height="32" fill="#8B6914"/><path d="M16 8c-4 0-7 2-7 5v3c0 3 3 5 7 5s7-2 7-5v-3c0-3-3-5-7-5z" fill="#FFD700" opacity="0.5"/><text x="16" y="19.5" text-anchor="middle" fill="#fff" font-size="6" font-weight="bold" font-family="sans-serif">BAAC</text></svg>'
+    icon: '<img src="public/icons/runtime-8.svg" alt="" aria-hidden="true">'
   }
 ];
 
@@ -108,7 +108,7 @@ function renderBankGrid() {
   if (!grid) return;
   grid.innerHTML = banks.map(function(b) {
     return '<button class="bank-chip" data-bank="' + b.code + '" type="button" title="' + b.name + '">'
-      + '<span class="bank-logo-mini">' + b.svg + '</span>'
+      + '<span class="bank-logo-mini">' + b.icon + '</span>'
       + '<span class="bank-name">' + b.short + '</span>'
       + '</button>';
   }).join('');
@@ -156,9 +156,9 @@ function showToast(message, type) {
   var toast = document.createElement('div');
   toast.className = 'toast ' + type;
   var icon = '';
-  if (type === 'success') icon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
-  else if (type === 'error') icon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>';
-  else icon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>';
+  if (type === 'success') icon = '<img src="public/icons/runtime-9.svg" alt="" aria-hidden="true">';
+  else if (type === 'error') icon = '<img src="public/icons/runtime-10.svg" alt="" aria-hidden="true">';
+  else icon = '<img src="public/icons/runtime-11.svg" alt="" aria-hidden="true">';
   toast.innerHTML = icon + '<span>' + message + '</span>';
   container.appendChild(toast);
   setTimeout(function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 3000);
@@ -247,8 +247,8 @@ function renderHistory(data) {
     var cls = tx.type === 'in' ? 'tx-in' : 'tx-out';
     var amtCls = tx.type === 'in' ? 'tx-amount-in' : 'tx-amount-out';
     var icon = tx.type === 'in'
-      ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>';
+      ? '<img src="public/icons/runtime-12.svg" alt="" aria-hidden="true">'
+      : '<img src="public/icons/runtime-13.svg" alt="" aria-hidden="true">';
     return '<div class="tx-item"><div class="tx-icon ' + cls + '">' + icon + '</div>'
       + '<div class="tx-info"><div class="tx-title">' + tx.title + '</div><div class="tx-sub">' + tx.date + ' \u00b7 <span style="color:#6FCF73;font-weight:600;">' + tx.status + '</span></div></div>'
       + '<div class="tx-amount ' + amtCls + '">' + (tx.type === 'in' ? '+' : '') + '\u0e3f' + Math.abs(tx.amount).toLocaleString() + '</div></div>';

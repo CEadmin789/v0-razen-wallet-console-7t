@@ -9,7 +9,7 @@
   <title>RAZEN Wallet Console</title>
   <meta name="description" content="ระบบจัดการ TrueMoney Wallet - RAZEN Console">
   <meta name="theme-color" content="#1a1a1a">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23f7931e' rx='20' width='100' height='100'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-weight='bold'>W</text></svg>">
+  <link rel="icon" href="public/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,13 +23,7 @@
   <header class="mobile-header" id="mobile-header">
     <div class="mobile-header-brand">
       <div class="brand-logo tmn-logo">
-        <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 80L25 10H42L30 55" fill="#E31837"/>
-          <path d="M28 55L48 10H58L43 80H28" fill="#E31837" opacity="0.5"/>
-          <path d="M40 80L55 10H72L57 55" fill="#FFD700"/>
-          <path d="M57 55L72 10H78L63 80H40" fill="#FFD700" opacity="0.7"/>
-          <path d="M65 10H82L110 80H95L75 25" fill="#F7931E"/>
-        </svg>
+        <img src="public/icons/ui-2.svg" alt="" aria-hidden="true">
       </div>
       <div>
         <h1 class="brand-title">RAZEN</h1>
@@ -46,13 +40,7 @@
   <aside class="drawer-sidebar" id="drawer-sidebar">
     <div class="brand">
       <div class="brand-logo tmn-logo">
-        <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 80L25 10H42L30 55" fill="#E31837"/>
-          <path d="M28 55L48 10H58L43 80H28" fill="#E31837" opacity="0.5"/>
-          <path d="M40 80L55 10H72L57 55" fill="#FFD700"/>
-          <path d="M57 55L72 10H78L63 80H40" fill="#FFD700" opacity="0.7"/>
-          <path d="M65 10H82L110 80H95L75 25" fill="#F7931E"/>
-        </svg>
+        <img src="public/icons/ui-3.svg" alt="" aria-hidden="true">
       </div>
       <div class="brand-text">
         <h1>RAZEN</h1>
@@ -61,27 +49,27 @@
     </div>
     <nav>
       <div class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <img src="public/icons/ui-4.svg" alt="" aria-hidden="true">
         แดชบอร์ด
       </div>
       <div class="nav-item" data-page="transfer" onclick="showPage('transfer')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.85c0 1.89-1.44 2.96-3.12 3.19z"/></svg>
+        <img src="public/icons/ui-5.svg" alt="" aria-hidden="true">
         โอนเงิน
       </div>
       <div class="nav-item" data-page="history" onclick="showPage('history')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21a9 9 0 000-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+        <img src="public/icons/ui-6.svg" alt="" aria-hidden="true">
         ประวัติรายการ
       </div>
       <div class="nav-item" data-page="accounts" onclick="showPage('accounts')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14c1.1 0 2 .9 2 2v1h-9a2 2 0 00-2 2v8a2 2 0 002 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        <img src="public/icons/ui-7.svg" alt="" aria-hidden="true">
         บัญชี
       </div>
       <div class="nav-item" data-page="envelope" onclick="showPage('envelope')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.03 6.29l-9.52 5.51-9.52-5.51A2 2 0 013.99 4h16.03a2 2 0 011.01 2.29zM2 8.5v9.5a2 2 0 002 2h16a2 2 0 002-2V8.5l-9.52 5.51a1 1 0 01-1 0L2 8.5z"/></svg>
+        <img src="public/icons/ui-8.svg" alt="" aria-hidden="true">
         ซองอั่งเปา
       </div>
       <div class="nav-item" data-page="tools" onclick="showPage('tools')">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.49.49 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        <img src="public/icons/ui-9.svg" alt="" aria-hidden="true">
         เครื่องมือ
       </div>
     </nav>
@@ -92,13 +80,7 @@
     <aside class="sidebar-desktop">
       <div class="brand">
         <div class="brand-logo tmn-logo">
-          <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 80L25 10H42L30 55" fill="#E31837"/>
-            <path d="M28 55L48 10H58L43 80H28" fill="#E31837" opacity="0.5"/>
-            <path d="M40 80L55 10H72L57 55" fill="#FFD700"/>
-            <path d="M57 55L72 10H78L63 80H40" fill="#FFD700" opacity="0.7"/>
-            <path d="M65 10H82L110 80H95L75 25" fill="#F7931E"/>
-          </svg>
+          <img src="public/icons/ui-10.svg" alt="" aria-hidden="true">
         </div>
         <div class="brand-text">
           <h1>RAZEN</h1>
@@ -107,27 +89,27 @@
       </div>
       <nav>
         <div class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <img src="public/icons/ui-11.svg" alt="" aria-hidden="true">
           แดชบอร์ด
         </div>
         <div class="nav-item" data-page="transfer" onclick="showPage('transfer')">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.85c0 1.89-1.44 2.96-3.12 3.19z"/></svg>
+          <img src="public/icons/ui-12.svg" alt="" aria-hidden="true">
           โอนเงิน
         </div>
         <div class="nav-item" data-page="history" onclick="showPage('history')">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21a9 9 0 000-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+          <img src="public/icons/ui-13.svg" alt="" aria-hidden="true">
           ประวัติรายการ
         </div>
         <div class="nav-item" data-page="accounts" onclick="showPage('accounts')">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14c1.1 0 2 .9 2 2v1h-9a2 2 0 00-2 2v8a2 2 0 002 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          <img src="public/icons/ui-14.svg" alt="" aria-hidden="true">
           บัญชี
         </div>
         <div class="nav-item" data-page="envelope" onclick="showPage('envelope')">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.03 6.29l-9.52 5.51-9.52-5.51A2 2 0 013.99 4h16.03a2 2 0 011.01 2.29zM2 8.5v9.5a2 2 0 002 2h16a2 2 0 002-2V8.5l-9.52 5.51a1 1 0 01-1 0L2 8.5z"/></svg>
+          <img src="public/icons/ui-15.svg" alt="" aria-hidden="true">
           ซองอั่งเปา
         </div>
         <div class="nav-item" data-page="tools" onclick="showPage('tools')">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.49.49 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          <img src="public/icons/ui-16.svg" alt="" aria-hidden="true">
           เครื่องมือ
         </div>
       </nav>
@@ -150,13 +132,7 @@
               <div class="balance-amount">&#3647; 12,680.00</div>
             </div>
             <div class="balance-logo">
-              <svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 80L25 10H42L30 55" fill="rgba(255,255,255,0.35)"/>
-                <path d="M28 55L48 10H58L43 80H28" fill="rgba(255,255,255,0.2)"/>
-                <path d="M40 80L55 10H72L57 55" fill="rgba(255,255,255,0.3)"/>
-                <path d="M57 55L72 10H78L63 80H40" fill="rgba(255,255,255,0.2)"/>
-                <path d="M65 10H82L110 80H95L75 25" fill="rgba(255,255,255,0.25)"/>
-              </svg>
+              <img src="public/icons/ui-17.svg" alt="" aria-hidden="true">
             </div>
           </div>
           <div class="balance-meta">
@@ -168,7 +144,7 @@
         <div class="summary-grid">
           <div class="card summary-card summary-in">
             <div class="summary-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+              <img src="public/icons/ui-18.svg" alt="" aria-hidden="true">
             </div>
             <div>
               <span class="summary-label">เงินเข้า</span>
@@ -177,7 +153,7 @@
           </div>
           <div class="card summary-card summary-out">
             <div class="summary-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+              <img src="public/icons/ui-19.svg" alt="" aria-hidden="true">
             </div>
             <div>
               <span class="summary-label">เงินออก</span>
@@ -186,7 +162,7 @@
           </div>
           <div class="card summary-card summary-pending">
             <div class="summary-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <img src="public/icons/ui-20.svg" alt="" aria-hidden="true">
             </div>
             <div>
               <span class="summary-label">รอดำเนินการ</span>
@@ -208,28 +184,28 @@
         <div class="quick-actions" aria-label="ทำรายการด่วน">
           <button class="qa-btn qa-primary" data-goto="transfer" aria-label="เริ่มโอนเงินแบบ P2P">
             <div class="qa-icon qa-p2p">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/></svg>
+              <img src="public/icons/transfer-p2p.svg" alt="" width="48" height="48">
             </div>
             <span>โอน P2P</span>
             <small>เริ่มรายการใหม่</small>
           </button>
           <button class="qa-btn" data-goto="transfer" aria-label="โอนเงินผ่านพร้อมเพย์">
             <div class="qa-icon qa-pp">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg>
+              <img src="public/icons/promptpay.svg" alt="" width="48" height="48">
             </div>
             <span>พร้อมเพย์</span>
             <small>เบอร์หรือเลขบัตร</small>
           </button>
           <button class="qa-btn" data-goto="transfer" aria-label="โอนเงินเข้าบัญชีธนาคาร">
             <div class="qa-icon qa-bank">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10h3v7H4zm6 0h3v7h-3zm11 11H2V18h19zm-6-11h3v7h-3zM11.5 1L2 6v2h19V6z"/></svg>
+              <img src="public/icons/bank-transfer.svg" alt="" width="48" height="48">
             </div>
             <span>ธนาคาร</span>
             <small>เลือกบัญชีปลายทาง</small>
           </button>
           <button class="qa-btn" data-goto="envelope" aria-label="สร้างซองอั่งเปา">
             <div class="qa-icon qa-env">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <img src="public/icons/gift-envelope.svg" alt="" width="48" height="48">
             </div>
             <span>สร้างซอง</span>
             <small>ส่งเป็นของขวัญ</small>
@@ -241,21 +217,21 @@
           <div class="tx-list" id="dashboard-tx-list">
             <div class="tx-item">
               <div class="tx-icon tx-out">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+                <img src="public/icons/ui-21.svg" alt="" aria-hidden="true">
               </div>
               <div class="tx-info"><div class="tx-title">โอน P2P</div><div class="tx-sub">ไปยัง 081****234 &middot; 20 พ.ค. 2026</div></div>
               <div class="tx-amount tx-amount-out">-&#3647;1,200</div>
             </div>
             <div class="tx-item">
               <div class="tx-icon tx-in">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+                <img src="public/icons/ui-22.svg" alt="" aria-hidden="true">
               </div>
               <div class="tx-info"><div class="tx-title">รับเงิน</div><div class="tx-sub">จาก 089****567 &middot; 19 พ.ค. 2026</div></div>
               <div class="tx-amount tx-amount-in">+&#3647;2,500</div>
             </div>
             <div class="tx-item">
               <div class="tx-icon tx-pp">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg>
+                <img src="public/icons/ui-23.svg" alt="" aria-hidden="true">
               </div>
               <div class="tx-info"><div class="tx-title">โอนพร้อมเพย์</div><div class="tx-sub">ไปยัง 098****123 &middot; 18 พ.ค. 2026</div></div>
               <div class="tx-amount tx-amount-out">-&#3647;800</div>
@@ -272,15 +248,15 @@
         </div>
         <div class="transfer-tabs">
           <button class="tab-btn active" data-tab="tab-p2p" onclick="switchTab('tab-p2p')">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 17.01V10h-2v7.01h-3L15 21l4-3.99h-3zM9 3L5 6.99h3V14h2V6.99h3L9 3z"/></svg>
+            <img src="public/icons/ui-24.svg" alt="" aria-hidden="true">
             P2P
           </button>
           <button class="tab-btn" data-tab="tab-pp" onclick="switchTab('tab-pp')">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-4.2-5.78v1.75l3.2-2.99L12.8 9v1.7c-3.11.43-4.35 2.56-4.8 4.7 1.11-1.5 2.58-2.18 4.8-2.18z"/></svg>
+            <img src="public/icons/ui-25.svg" alt="" aria-hidden="true">
             พร้อมเพย์
           </button>
           <button class="tab-btn" data-tab="tab-bank" onclick="switchTab('tab-bank')">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M4 10h3v7H4zm6 0h3v7h-3zm11 11H2V18h19zm-6-11h3v7h-3zM11.5 1L2 6v2h19V6z"/></svg>
+            <img src="public/icons/ui-26.svg" alt="" aria-hidden="true">
             ธนาคาร
           </button>
         </div>
@@ -385,7 +361,7 @@
               <div class="envelope-top"></div>
               <div class="envelope-shine"></div>
               <div class="envelope-gold">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <img src="public/icons/ui-27.svg" alt="" aria-hidden="true">
               </div>
             </div>
           </div>
@@ -424,7 +400,7 @@
         </div>
         <div class="card">
           <h3 class="card-title">ข้อมูล & การจำลอง</h3>
-          <p class="card-desc">ส่งออกรายการหรือจำลองสถานการณ์</p>
+          <p class="card-desc">ส่ง���อกรายการหรือจำลองสถานการณ์</p>
           <div class="btn-stack">
             <button class="btn btn-secondary" id="btn-export-csv">Export CSV</button>
             <button class="btn btn-red-outline" id="btn-sim-error">จำลอง Error</button>
@@ -437,23 +413,23 @@
   <!-- Mobile Bottom Nav -->
   <nav class="mobile-nav" id="mobile-nav">
     <button class="mnav active" data-page="dashboard" onclick="showPage('dashboard')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <img src="public/icons/ui-28.svg" alt="" aria-hidden="true">
       <span>หน้าหลัก</span>
     </button>
     <button class="mnav" data-page="transfer" onclick="showPage('transfer')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.85c0 1.89-1.44 2.96-3.12 3.19z"/></svg>
+      <img src="public/icons/ui-29.svg" alt="" aria-hidden="true">
       <span>โอนเงิน</span>
     </button>
     <button class="mnav" data-page="history" onclick="showPage('history')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 00-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21a9 9 0 000-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+      <img src="public/icons/ui-30.svg" alt="" aria-hidden="true">
       <span>ประวัติ</span>
     </button>
     <button class="mnav" data-page="accounts" onclick="showPage('accounts')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14c1.1 0 2 .9 2 2v1h-9a2 2 0 00-2 2v8a2 2 0 002 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+      <img src="public/icons/ui-31.svg" alt="" aria-hidden="true">
       <span>บัญชี</span>
     </button>
     <button class="mnav" data-page="tools" onclick="showPage('tools')">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.49.49 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      <img src="public/icons/ui-32.svg" alt="" aria-hidden="true">
       <span>เครื่องมือ</span>
     </button>
   </nav>
@@ -463,12 +439,12 @@
     <div class="modal-sheet" id="transfer-modal">
       <div class="sheet-handle"></div>
       <div class="modal-q">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
+        <img src="public/icons/ui-33.svg" alt="" aria-hidden="true">
       </div>
       <div class="modal-heading" id="modal-heading">ยืนยันโอน P2P</div>
       <div class="modal-avatar-wrap">
         <div class="modal-avatar-circle">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <img src="public/icons/ui-34.svg" alt="" aria-hidden="true">
         </div>
         <div class="modal-name-th" id="confirm-receiver">นาย สมชาย ใจดี</div>
         <div class="modal-name-en" id="confirm-receiver-en">Somchai Jaidee</div>
@@ -498,7 +474,7 @@
       <div class="form-group"><label>PIN 6 หลัก</label><input type="password" class="form-input" id="acc-pin" placeholder="******" maxlength="6" inputmode="numeric"></div>
       <div class="form-group"><label>TMN ID</label><input type="text" class="form-input" id="acc-tmn-id" placeholder="TMN ID"></div>
       <div class="form-group"><label>Device ID</label><input type="text" class="form-input" id="acc-device" placeholder="Device ID"></div>
-      <button type="submit" class="btn btn-orange">เชื่อมบัญชี</button>
+      <button type="submit" class="btn btn-orange">เชื���อมบัญชี</button>
     </form>
   </div>
 
